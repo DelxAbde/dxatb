@@ -43,7 +43,8 @@ const appState = {
 // Module 3: API Calls & Logic (Secure Backend Proxy)
 // ===================================================================
 const api = {
-    backendApiUrl: 'http://localhost:3000/api/translate',
+    // ** استبدل هذا الرابط برابط خدمة Render الخاصة بك **
+    backendApiUrl: 'https://dxa-translator-backend.onrender.com/api/translate',
     async callGeminiAPI(file, promptText) {
         const formData = new FormData();
         formData.append('image', file);

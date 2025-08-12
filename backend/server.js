@@ -36,7 +36,7 @@ app.post('/api/translate', upload.single('image'), async (req, res) => {
         const imageBuffer = req.file.buffer;
         const mimeType = req.file.mimetype;
         
-        // ** IMPORTANT: The updated prompt to separate text bubbles with a blank line **
+        // ** The updated prompt to separate text bubbles with a blank line **
         const prompt = "Please act as an Optical Character Recognition (OCR) and manga translator. Your task is to identify and extract all text from the speech bubbles in the image and translate them into Arabic. IMPORTANT: Separate the translation of each distinct speech bubble with a blank line. The response must be a single JSON object with two keys: `original_text` and `translated_text`. For example: { \"original_text\": \"Original text from bubble 1\\nOriginal text from bubble 2\", \"translated_text\": \"النص المترجم من الفقاعة 1\\n\\nالنص المترجم من الفقاعة 2\" }.";
         
         const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;

@@ -102,4 +102,108 @@ textarea {
     background-color: #374151; /* لون خلفية غامق */
     color: #e5e7eb; /* لون نص فاتح */
     border: 1px solid #4b5563;
+}@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+:root {
+    --light-bg: #f0f4f8; --light-text: #1f2937; --light-card: #ffffff;
+    --dark-bg: #1f2937; --dark-text: #e5e7eb; --dark-card: #111827;
+    --primary: #3b82f6; --primary-hover: #2563eb; --accent: #4caf50;
+}
+body { 
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif; 
+    background-color: var(--light-bg); 
+    color: var(--light-text); 
+    transition: background-color 0.4s ease, color 0.4s ease; 
+}
+body.dark-theme { 
+    background-color: var(--dark-bg); 
+    color: var(--dark-text); 
+}
+.drag-over { 
+    border-color: var(--primary) !important; 
+    background-color: #dbeafe; 
+}
+.dark-theme .drag-over { 
+    background-color: #1e3a8a; 
+}
+.processing-overlay { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 8px; 
+}
+.loader { 
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid var(--primary); 
+    border-radius: 50%; 
+    width: 24px; 
+    height: 24px; 
+    animation: spin 1s linear infinite; 
+}
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+.message-box { 
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: white; 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    z-index: 1000; 
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out, background-color 0.3s ease; 
+    min-width: 200px; 
+    text-align: center; 
+    width: 90%; 
+    max-width: 400px; 
+}
+.message-box.show { 
+    opacity: 1; 
+}
+.message-box.success { 
+    background-color: var(--accent); 
+}
+.message-box.error { 
+    background-color: #f44336; 
+}
+.message-box.info { 
+    background-color: #2196F3; 
+}
+.sr-only { 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    padding: 0; 
+    margin: -1px; 
+    overflow: hidden; 
+    clip: rect(0, 0, 0, 0); 
+    white-space: nowrap; 
+    border-width: 0; 
+}
+:focus { 
+    outline: 2px solid var(--primary); 
+    outline-offset: 2px; 
+}
+/* أنماط إضافية لحقول النصوص */
+textarea {
+    white-space: pre-wrap; /* يحافظ على المسافات البيضاء والأسطر الجديدة */
+    font-family: inherit;
+    line-height: 1.6; /* يزيد من المسافة بين السطور لتحسين القراءة */
+    resize: none; /* يمنع تغيير حجم حقل النص */
+    border: 1px solid #d1d5db;
+    color: #1f2937;
+}
+
+.dark-theme textarea {
+    background-color: #374151; /* لون خلفية غامق */
+    color: #e5e7eb; /* لون نص فاتح */
+    border: 1px solid #4b5563;
 }
