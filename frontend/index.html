@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DxA Translator - أداة ترجمة المانهوا والمانجا</title>
+    <meta name="description" content="DxA Translator هي أداة سريعة وآمنة لترجمة النصوص من صور المانهوا والمانجا إلى العربية باستخدام Gemini AI.">
+    <meta name="keywords" content="ترجمة, مانهوا, مانجا, ترجمة صور, Gemini, AI, OCR, tool, DxA">
+    <meta name="author" content="WebForge AI">
+    
+    <meta property="og:title" content="DxA Translator - أداة ترجمة المانهوا والمانجا">
+    <meta property="og:description" content="أداة سريعة وآمنة لترجمة النصوص من صور المانهوا والمانجا إلى العربية باستخدام Gemini AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/social-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DxA Translator - أداة ترجمة المانهوا والمانجا">
+    <meta name="twitter:description" content="أداة سريعة وآمنة لترجمة النصوص من صور المانهوا والمانجا إلى العربية باستخدام Gemini AI.">
+    <meta name="twitter:image" content="https://your-domain.com/social-image.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "DxA Translator",
+          "operatingSystem": "All",
+          "applicationCategory": "Utilities",
+          "inLanguage": "ar",
+          "url": "https://your-domain.com",
+          "description": "أداة سريعة وآمنة لترجمة النصوص من صور المانهوا والمانجا إلى العربية باستخدام Gemini AI.",
+          "author": {
+            "@type": "Organization",
+            "name": "WebForge AI"
+          }
+        }
+    </script>
+</head>
+
+<body class="p-4 md:p-8">
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section id="input-section" class="lg:col-span-1 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 transition-colors duration-400">
+            <header class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-lang="appTitle">DxA Translator</h1>
+                <div class="flex items-center gap-4">
+                    <select id="language-selector" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg p-2">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                    <button id="theme-toggle-btn" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    </button>
+                </div>
+            </header>
+            <div class="mb-6">
+                <label for="image-upload" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-lang="uploadLabel">قم بتحميل صور أو ملفات ZIP</label>
+                <div id="drop-zone" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-md cursor-pointer hover:border-blue-500" role="button" tabindex="0" aria-label="Drop files here to upload">
+                    <div class="space-y-1 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.26-3.26a4 4 0 00-5.6 0L28 28m0 0l-14 14m14-14l-11.26-11.26a4 4 0 00-5.6 0L4 28"></path></svg>
+                        <div class="flex flex-col md:flex-row text-sm text-gray-600 dark:text-gray-400">
+                            <label for="image-upload" class="relative cursor-pointer bg-white dark:bg-gray-800 rounded-md font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500">
+                                <span data-lang="uploadButtonText">تحميل ملف</span>
+                                <input id="image-upload" name="image-upload" type="file" class="sr-only" accept="image/png, image/jpeg, image/gif, image/webp, .zip" multiple aria-describedby="file-formats-info">
+                            </label>
+                            <p class="md:pr-1" data-lang="dragAndDropText">أو اسحبها وأفلتها هنا</p>
+                        </div>
+                        <p id="file-formats-info" class="text-xs text-gray-500 dark:text-gray-400" data-lang="supportedFormats">ملفات PNG, JPG, GIF, WebP, ZIP حتى 10MB</p>
+                    </div>
+                </div>
+            </div>
+            <div id="image-previews-container" class="flex flex-wrap gap-2 mb-6 max-h-52 overflow-y-auto rounded-xl p-2 bg-gray-100 dark:bg-gray-700" aria-live="polite">
+                <p class="text-gray-500 dark:text-gray-400 text-sm p-4" data-lang="noImagesLoaded">لم يتم تحميل أي صور.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <button id="translate-btn" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md disabled:bg-blue-300 disabled:cursor-not-allowed" disabled data-lang="translateButtonText" aria-live="polite">
+                    ترجمة
+                </button>
+                <div id="progress-container" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden hidden" role="progressbar" aria-label="Translation progress">
+                    <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-300 ease-in-out" style="width: 0%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 transition-colors duration-400">
+            <aside id="output-gallery-container" class="flex flex-wrap gap-2 mb-6 max-h-[250px] overflow-y-auto rounded-2xl p-2 bg-gray-100 dark:bg-gray-700" aria-live="polite">
+                <p class="text-gray-500 dark:text-gray-400 text-sm p-4" data-lang="outputGalleryTitle">سيظهر معرض الصور المترجمة هنا.</p>
+            </aside>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="original-text" class="flex justify-between items-center text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <span data-lang="originalTextLabel">النص الأصلي</span>
+                        <button id="copy-original-btn" class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full" aria-label="Copy original text"><i class="fa-solid fa-copy"></i></button>
+                    </label>
+                    <textarea id="original-text" class="w-full h-48 p-3 border rounded-lg bg-gray-50 dark:bg-gray-700" readonly data-lang="placeholderOriginal" placeholder="سيظهر النص الأصلي هنا..."></textarea>
+                </div>
+                <div>
+                    <label for="translated-text" class="flex justify-between items-center text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <span data-lang="translatedTextLabel">النص المترجم</span>
+                        <button id="copy-translated-btn" class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full" aria-label="Copy translated text"><i class="fa-solid fa-copy"></i></button>
+                    </label>
+                    <textarea id="translated-text" class="w-full h-48 p-3 border rounded-lg bg-gray-50 dark:bg-gray-700" data-lang="placeholderTranslated" placeholder="سيظهر النص المترجم هنا..."></textarea>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 mt-6">
+                <button id="show-all-btn" class="bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-full hover:bg-gray-400" data-lang="showAllButtonText">عرض الكل</button>
+                <button id="download-all-btn" class="bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-full hover:bg-gray-400" data-lang="downloadAllButtonText">تنزيل النصوص</button>
+            </div>
+        </section>
+    </main>
+    <div id="message-box" class="message-box" role="status" aria-live="polite"></div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
